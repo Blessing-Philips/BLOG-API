@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const UserSchema = new Schema (
     {
-        name: {
+        username: {
             type: String,
             required: true,
             unique: true
