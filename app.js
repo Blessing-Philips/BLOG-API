@@ -16,6 +16,17 @@ dotenv.config()
 app.use(home);
 app.use('/api/', Signup);
 
+// Creating a middleware that handles every error
+app.use((err, req, res, next) => {
+    let statusCode = err.status || 500;
+    let message = err.message || "Internal Server Error!";
+    res.status(statusCode).json({
+        success: false,
+        statusCode,
+        message
+    });
+});
+
 const port = process.env.PORT
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
