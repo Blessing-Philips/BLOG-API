@@ -6,6 +6,7 @@ const bcryptjs = require('bcryptjs');
 const db = require('./database/database');
 const home = require('./routes/home.route');
 const auth = require('./routes/user.route');
+const user = require('./routes/userHandler.route');
 
 const app = express();
 
@@ -15,6 +16,7 @@ dotenv.config()
 
 app.use(home);
 app.use('/api/', auth);
+app.use('/api/', user);
 
 // Creating a middleware that handles every error
 app.use((err, req, res, next) => {
