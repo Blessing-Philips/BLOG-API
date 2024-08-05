@@ -6,8 +6,8 @@ const { updateUser,
     deleteUser
 } = require('../controllers/userHandler.controller');
 
-router.put('/update:id', updateUser);
-router.delete('/delete:id', deleteUser);
+router.put('/update/:id', updateUser);
+router.delete('/delete/:id', deleteUser);
 
 
 module.exports = router;
